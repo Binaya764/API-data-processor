@@ -7,6 +7,8 @@ printer = PrettyPrinter()
 docs = get(Base_URL + ALL_JSON).json()['docs'] #combines to form the full URL and sends get request to fetch data
 
 for doc in docs:
-
-    printer.pprint(doc.keys())
-    break
+    book_author = doc.get('author_name')
+    book_title = doc['title']
+    year = doc.get('first_publish_year')
+   
+    print(f"{book_title} by {book_author}, {year}")
